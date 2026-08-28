@@ -1,0 +1,232 @@
+CIRCULE
+Antes del papeleo, el acuerdo.
+Documento base para construir la landing page (texto plano, listo para copiar).
+
+===============================================================
+1. EN UNA FRASE
+===============================================================
+Circule es la sala donde varios socios y un facilitador de IA toman, aprueban
+y sellan las decisiones vinculantes de su empresa —empezando por constituirla—
+y dejan registro de quién decidió qué, cuándo y con qué advertencias.
+
+No es un editor de documentos. Es un sistema de registro de decisiones con
+peso legal. El documento es el resultado; el valor es la trazabilidad.
+
+===============================================================
+2. EL PROBLEMA
+===============================================================
+Cuando dos o más personas fundan una empresa, la parte difícil no es el
+papeleo: es ponerse de acuerdo. Cuánto equity para cada uno, qué vesting, qué
+pasa si alguien se va, quién decide en un empate, cómo se resuelve un conflicto.
+
+Hoy eso ocurre en el caos: conversaciones sueltas, WhatsApp, un Google Doc que
+nadie entiende, horas caras de abogado, y tres personas preguntándole cada una
+por su lado a su propio ChatGPT. Nadie queda con un registro claro de lo que se
+acordó. Y años después, en una ronda o en una disputa entre socios, esa
+ambigüedad es justo lo que revienta cap tables y mata empresas.
+
+Las plataformas rápidas (Clerky, Stripe Atlas y similares) resuelven el TRÁMITE:
+generan los documentos listos para firmar en pocos días. Pero asumen que los
+socios YA se pusieron de acuerdo en todo. Te dan un formulario, no te ayudan a
+decidir. En cuanto el caso no es estándar —reparto desigual, aportes distintos,
+un socio que se va— el flujo se rompe y te dicen "consigue un abogado".
+
+Ese hueco —el ACUERDO, antes del trámite— es donde vive Circule.
+
+===============================================================
+3. LA SOLUCIÓN / QUÉ ES
+===============================================================
+Circule convierte una negociación entre socios en decisiones claras, aprobadas
+y verificables.
+
+- No empiezas con un documento en blanco. Empiezas respondiendo unas preguntas
+  en lenguaje humano, y Circule te arma la AGENDA DE DECISIONES de tu caso.
+- Cada decisión trae lo que suele hacerse (defaults con el porqué explicado en
+  simple), para que aceptes rápido donde hay acuerdo y solo frenes a negociar
+  donde no lo hay.
+- Un FACILITADOR IA neutral detecta lo pendiente, las contradicciones y los
+  riesgos (por ejemplo, si la participación suma 90% y falta asignar el 10%).
+- Cada socio tiene un COPILOTO PRIVADO ("solo visible para ti") que le explica
+  una propuesta, resume sus implicaciones y le prepara una contrapropuesta.
+- Los agentes proponen y explican. Solo las personas autorizadas deciden,
+  aprueban o firman. Cada aprobación registra quién, cuándo, sobre qué versión
+  y con qué advertencias.
+- El documento se arma y se SELLA cláusula por cláusula a medida que las
+  decisiones se cierran.
+- Al final se genera un EXPEDIENTE DE CIERRE y un ACTA de decisiones separada
+  del documento legal, listos para firma y para el handoff al trámite.
+- Después de firmar, el documento se bloquea: cualquier cambio entra como una
+  ENMIENDA con su propio ciclo de aprobación.
+
+Lo que Circule NO hace (y no pretende): no reemplaza al abogado, ni la notaría,
+ni el registro. No es la plataforma que "presenta" la constitución: prepara el
+acuerdo y se lo entrega a quien tramita (Clerky, Atlas u otro).
+
+===============================================================
+4. CÓMO FUNCIONA (3 PASOS = EL FLUJO DE LA LANDING)
+===============================================================
+PASO 1 — Cuéntanos su caso (Onboarding)
+Cinco preguntas en lenguaje humano: qué van a hacer, cuántos socios son, si van
+a levantar capital, cómo será el reparto, y si alguien aporta algo distinto.
+En dos minutos, sin jerga. Circule detecta desacuerdos desde el primer minuto.
+
+PASO 2 — Reciban su agenda de decisiones
+Circule genera, a la medida del caso, la lista exacta de decisiones que hay que
+tomar, con lo que suele hacerse en cada una. Separa lo que hay que NEGOCIAR de
+lo que solo hay que TRAMITAR, y marca dónde deben ponerse de acuerdo.
+
+PASO 3 — Decidan en la sala y sellen el documento
+Entran a la sala, se invitan entre socios, y cierran las decisiones una por una
+con el facilitador y el copiloto. El documento se sella cláusula por cláusula.
+Al final: expediente, acta y firma. Listo para el trámite.
+
+===============================================================
+5. QUÉ LO HACE DIFERENTE
+===============================================================
+Frente a Google Docs + tu propio LLM:
+Docs rastrea cambios de TEXTO, no DECISIONES. No sabe quién está autorizado a
+aprobar, ni fuerza el orden (acordar > aprobar > firmar > enmendar), ni produce
+un registro defendible de "esto lo aprobaron estas personas, a esta hora, con
+estas advertencias". Y tres LLMs privados, cada uno optimizado para un interés
+distinto, nunca son un árbitro neutral. Circule sí tiene el objeto "decisión",
+la autoridad y el registro.
+
+Frente a Clerky / Stripe Atlas (las plataformas de constitución):
+Ellas resuelven el trámite una vez que ya decidiste. Circule vive AGUAS ARRIBA:
+resuelve el acuerdo entre las partes, y luego entrega al trámite. No competimos
+con ellas: nos conectamos. Circule + plataforma de constitución, no Circule vs.
+
+El foso (por qué es difícil de copiar):
+- Profundidad legal por jurisdicción: cláusulas y defaults que de verdad sirven,
+  validados por abogados. Un editor bonito se copia; el conocimiento legal
+  codificado, no.
+- Sistema de registro: cuando el pacto de socios, las actas y las enmiendas
+  viven en Circule como una cadena conectada y sellada, migrar duele. El activo
+  es la historia gobernada acumulada.
+
+===============================================================
+6. PARA QUIÉN ES
+===============================================================
+- Fundadores que están constituyendo o formalizando su empresa entre socios.
+- Empresas que necesitan gobernanza continua: sumar socios, actas, resoluciones,
+  aprobar rondas, enmiendas.
+- Abogados de startups y legal-ops: corren estos procesos para muchos clientes,
+  ganan tiempo y entregan registros limpios. (Son, además, el mejor canal.)
+
+Reencuadre para el abogado: Circule no reemplaza tu juicio; te quita la parte
+aburrida —perseguir acuerdos, versiones y papeleo— y te deja lo que cobras caro.
+
+===============================================================
+7. EL FLUJO DEL PRODUCTO Y CÓMO CONECTAR LOS DOS ARTEFACTOS
+===============================================================
+La landing es la puerta de entrada. Encadena así:
+
+  LANDING (esta página)
+     |  CTA principal: "Empezar" / "Constituir con Circule"
+     v
+  ONBOARDING  ->  archivo: circule-onboarding.html
+     |  5 preguntas -> agenda de decisiones generada
+     |  Botón final del onboarding: "Entrar a la sala de decisiones"
+     v
+  SALA / BOARD con el documento  ->  archivo: mini-giants-sala.html
+     |  Se toman, aprueban y sellan las decisiones
+     |  Expediente + acta + firma + enmiendas
+
+Cómo conectarlo en la práctica (para quien construya la landing):
+- El botón principal de la landing (hero y footer) debe enlazar al onboarding.
+  Ejemplo: <a href="circule-onboarding.html">Empezar</a>
+- En el onboarding, el botón "Entrar a la sala de decisiones" / "Abrir la sala"
+  debe enlazar a la sala.
+  Ejemplo: cambiar la acción del botón por  window.location.href='mini-giants-sala.html'
+- Mantén el mismo lenguaje visual en las tres pantallas para que se sienta un
+  solo producto: papel color piedra, verde institucional, sello oxblood, y los
+  datos (versiones, horas, códigos) en tipografía monoespaciada.
+- Recomendado alojar los tres archivos en el mismo dominio/carpeta para que los
+  enlaces relativos funcionen (landing.html, circule-onboarding.html,
+  mini-giants-sala.html).
+
+===============================================================
+8. COPY LISTO PARA LA LANDING (puedes pegarlo tal cual)
+===============================================================
+
+[ETIQUETA SUPERIOR]
+Sala de decisiones para fundadores
+
+[TITULAR / HERO]
+Constituir una empresa no es llenar un formulario.
+Es ponerse de acuerdo.
+
+[SUBTÍTULO]
+Circule es la sala donde tú y tus socios toman, aprueban y sellan las decisiones
+de su empresa —con un facilitador de IA y registro de todo lo acordado—. El
+documento se arma solo, a medida que deciden.
+
+[CTA PRINCIPAL]
+Empezar · 5 preguntas, 2 minutos
+(enlaza al onboarding)
+
+[CTA SECUNDARIO]
+Ver cómo funciona
+
+----------------------------------------------------------------
+SECCIÓN: EL PROBLEMA
+Titular: Lo difícil no es el papeleo. Es el acuerdo.
+Texto: Cuánto equity, qué vesting, qué pasa si alguien se va, quién decide en un
+empate. Hoy eso vive en conversaciones sueltas, un Google Doc que nadie entiende
+y horas caras de abogado —y nadie queda con un registro claro de lo acordado.
+Años después, esa ambigüedad es lo que rompe a los socios.
+
+----------------------------------------------------------------
+SECCIÓN: CÓMO FUNCIONA (3 pasos)
+Paso 1 — Cuéntanos su caso
+Cinco preguntas en lenguaje humano, sin jerga legal. Nada de documentos en
+blanco.
+Paso 2 — Reciban su agenda de decisiones
+Circule arma la lista exacta que su caso necesita, con lo que suele hacerse en
+cada una, y marca dónde deben ponerse de acuerdo.
+Paso 3 — Decidan y sellen
+Cierran cada decisión con el facilitador y su copiloto privado. El documento se
+sella cláusula por cláusula. Al final: expediente, acta y firma.
+
+----------------------------------------------------------------
+SECCIÓN: POR QUÉ CIRCULE (diferenciadores, en tarjetas)
+- Decisiones, no solo texto. Cada acuerdo queda con quién lo aprobó, cuándo y con
+  qué advertencias. Un registro que se sostiene en una due diligence.
+- Un facilitador neutral. Detecta lo pendiente, las contradicciones y los riesgos
+  —y cada socio tiene un copiloto privado para su propio interés.
+- Las personas deciden, la IA ayuda. Los agentes proponen y explican. Solo tú y
+  tus socios aprueban y firman.
+- Se conecta con el trámite. Circule prepara el acuerdo y lo entrega a la
+  plataforma de constitución. No reemplaza a tu abogado ni al registro.
+
+----------------------------------------------------------------
+SECCIÓN: PARA QUIÉN
+Para fundadores que arrancan entre socios, para empresas que necesitan gobernar
+sus decisiones, y para abogados que quieren correr todo esto con registros
+limpios y menos fricción.
+
+----------------------------------------------------------------
+SECCIÓN: CIERRE / CTA FINAL
+Titular: Empiecen por el acuerdo. El papel viene solo.
+CTA: Empezar ahora (enlaza al onboarding)
+
+----------------------------------------------------------------
+NOTA LEGAL (pie de página, importante para producto legal)
+Circule organiza y registra decisiones. No es un despacho de abogados y no
+sustituye la revisión jurídica, la firma ante notaría ni el registro mercantil
+aplicables en tu jurisdicción.
+
+===============================================================
+9. MICROCOPY Y NOMBRES ÚTILES
+===============================================================
+Nombre del producto: Circule
+Tagline: Antes del papeleo, el acuerdo.
+Palabras clave del tono: acuerdo, decisión, sellado, registro, trazabilidad,
+confianza, socios, vinculante. (Evitar vender "IA multiplayer" como el valor:
+eso es el medio, no el producto.)
+Términos del producto a usar de forma consistente:
+  - Sala de decisiones
+  - Agenda de decisiones
+  - Facilitador IA / Copiloto privado
+  - Expediente de cierre / Acta de decisiones
+  - Sellar / Enmienda

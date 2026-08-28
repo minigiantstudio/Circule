@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circule · Before the paperwork, the agreement</title>
+<meta name="description" content="Circule is the room where you and your co-founders make, approve, and seal your company's decisions, with an AI facilitator and a record of everything agreed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;color:#131A0E;font-family:Inter,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;background-color:#EFF2E5}
+  a{color:#2E6B24;text-decoration:none}
+  a:hover{color:#1A2A12}
+  button{font:inherit}
+  :focus-visible{outline:2px solid #2E6B24;outline-offset:2px}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  @keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.25}}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+  .fade-in{animation:fadeUp .75s ease both}
+  [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-visible{opacity:1;transform:translateY(0)}
+
+  .navlink{font-size:14.5px;color:#4B5544;transition:color .2s ease,box-shadow .2s ease}
+  .navlink:hover{color:#131A0E;box-shadow:0 2px 0 -1px #2E6B24}
+  .nav-producto{background:none;border:none;padding:0;font-family:Inter,sans-serif;font-size:14.5px;color:#4B5544;cursor:pointer;display:flex;align-items:center;gap:5px;transition:color .2s ease}
+  .nav-producto:hover{color:#131A0E}
+  .btn-dark{background:#1A2A12;color:#A6E267;font-family:'IBM Plex Mono',monospace;font-weight:500;border-radius:10px;transition:transform .2s ease,background .2s ease;display:inline-block;border:none;cursor:pointer}
+  .btn-dark:hover{background:#24391A}
+  .btn-dark.lift:hover{transform:translateY(-2px)}
+  .details-link{font-size:15px;color:#4B5544;font-weight:500;display:inline-flex;align-items:center;gap:7px;transition:gap .2s ease,color .2s ease}
+  .details-link:hover{gap:12px;color:#131A0E}
+  .menu-card{display:block;padding:14px;border:1px solid #DCE3CC;border-radius:12px;background:#FFFFFF;transition:transform .2s ease,border-color .2s ease}
+  .menu-card:hover{transform:translateY(-2px);border-color:#A6E267}
+  .feature-card{background:#FFFFFF;border:1px solid #DCE3CC;border-radius:14px;padding:24px;transition:border-color .2s ease,box-shadow .2s ease}
+  .feature-card:hover{border-color:#C6D0B2;box-shadow:0 14px 30px rgba(19,26,14,.08)}
+  .field{width:100%;background:#FFFFFF;border:1px solid #C6D0B2;border-radius:10px;padding:14px 15px;font-family:Inter,sans-serif;font-size:15px;color:#131A0E;outline:none;transition:border-color .2s ease,box-shadow .2s ease}
+  .field:focus{border-color:#2E6B24;box-shadow:0 0 0 3px rgba(46,107,36,.12)}
+  .role-btn{background:#FFFFFF;color:#4B5544;border:1px solid #C6D0B2;font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:9px 15px;border-radius:999px;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+  .role-btn.is-active{background:#1A2A12;color:#A6E267;border-color:#1A2A12}
+  .approval-pill{font-family:Inter,sans-serif;font-size:12.5px;font-weight:500;padding:7px 13px;border-radius:999px;border:1px solid #C6D0B2;background:#FFFFFF;color:#4B5544;white-space:nowrap;transform:scale(.97);transition:all .45s cubic-bezier(.2,.7,.2,1)}
+  .approval-pill.is-on{font-weight:600;border-color:#2E6B24;background:#E3F0DA;color:#1F4D18;transform:scale(1)}
+  .avatar{width:26px;height:26px;border-radius:50%;color:#fff;font-size:9px;font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid #FFFFFF;margin-left:-7px;font-family:Inter,sans-serif;box-shadow:none;transition:box-shadow .4s ease}
+  .avatar.is-on{box-shadow:0 0 0 2px rgba(46,107,36,.5)}
+  .step-item{border-left:2px solid #DCE3CC;padding:14px 0 16px 18px;opacity:.45;transition:opacity .35s ease,border-color .35s ease}
+  .step-item.is-active{border-left-color:#2E6B24;opacity:1}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8B9480;transition:color .2s ease}
+  .lang-link:hover{color:#131A0E}
+
+  .nav-hamburger{display:none;background:none;border:none;padding:6px;margin:-6px 0;border-radius:8px;cursor:pointer;align-items:center;justify-content:center;transition:background .2s ease}
+  .nav-hamburger:hover{background:#E7EDD6}
+  .mobile-menu{display:none;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:#FFFFFF;border-top:1px solid #DCE3CC;box-shadow:0 18px 40px rgba(19,26,14,.08);padding:6px clamp(20px,5vw,32px) 16px}
+  .mobile-menu.is-open{display:flex}
+  .mobile-menu-link{font-size:16px;color:#131A0E;padding:15px 0;border-bottom:1px solid #E7EDD6}
+  .mobile-menu-link:last-child{border-bottom:none}
+
+  @media (max-width:820px){
+    .nav-links{display:none!important}
+    .nav-hamburger{display:inline-flex}
+    .steps-col{position:static!important;max-height:none!important;overflow:visible!important;top:auto!important}
+  }
+  @media (max-width:640px){
+    #hero-chip{position:static!important;right:auto!important;bottom:auto!important;max-width:320px!important;margin:14px auto 0!important;z-index:auto!important}
+    .flow-arrow{display:block!important;width:100%;text-align:center;transform:rotate(90deg)!important;margin:2px 0!important}
+  }
+</style>
+</head>
+<body>
+
+<div style="position:sticky;top:0;z-index:60;border-bottom:1px solid #DCE3CC;background-color:#F1F2EB" id="site-header">
+  <div style="max-width:1120px;margin:0 auto;padding:13px clamp(20px,5vw,32px);display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <div style="display:flex;align-items:center;gap:34px;">
+      <a href="#top" style="font-family:Fraunces,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:#131A0E;">Circule</a>
+      <div class="nav-links" style="display:flex;align-items:center;gap:26px;">
+        <button id="nav-producto-btn" class="nav-producto">Product
+          <svg id="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .25s ease"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <a href="#how-it-works" class="navlink nav-item">How it works</a>
+        <a href="#why-circule" class="navlink nav-item">Why Circule</a>
+        <a href="#who-its-for" class="navlink nav-item">Who it's for</a>
+        <a href="#access" class="navlink nav-item">Access</a>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;flex:none;">
+      <a href="/" class="lang-link">ES</a>
+      <a href="#access" class="btn-dark" style="font-size:13px;padding:10px 18px;">Get started</a>
+      <button id="nav-hamburger-btn" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg id="hamburger-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#131A0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="scroll-progress" style="height:2px;width:0%;background:#2E6B24;transition:width .12s linear"></div>
+
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="#how-it-works" class="mobile-menu-link">How it works</a>
+    <a href="#why-circule" class="mobile-menu-link">Why Circule</a>
+    <a href="#who-its-for" class="mobile-menu-link">Who it's for</a>
+    <a href="#access" class="mobile-menu-link">Access</a>
+  </div>
+
+  <div id="nav-dropdown" class="nav-links" style="position:absolute;left:0;right:0;top:100%;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .22s ease,transform .28s cubic-bezier(.2,.7,.2,1)">
+    <div style="border-top:1px solid #DCE3CC;box-shadow:0 18px 40px rgba(19,26,14,.08);background-color:#FFFFFF">
+      <div style="max-width:1120px;margin:0 auto;padding:26px clamp(20px,5vw,32px) 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;">
+        <a href="#how-it-works" class="menu-card">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#2E6B24;margin-bottom:7px;">▸ AGENDA</div>
+          <div style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#131A0E;margin-bottom:4px;">Decision agenda</div>
+          <div style="font-size:13px;color:#4B5544;">The exact list your case needs.</div>
+        </a>
+        <a href="#why-circule" class="menu-card">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#2E6B24;margin-bottom:7px;">▸ FACILITATOR</div>
+          <div style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#131A0E;margin-bottom:4px;">Neutral facilitator</div>
+          <div style="font-size:13px;color:#4B5544;">Flags what's pending and any contradictions.</div>
+        </a>
+        <a href="#why-circule" class="menu-card">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8A2E2A;margin-bottom:7px;">▸ RECORD</div>
+          <div style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#131A0E;margin-bottom:4px;">Sealed clauses</div>
+          <div style="font-size:13px;color:#4B5544;">Who approved, when, and with what caveats.</div>
+        </a>
+        <a href="#positioning" class="menu-card">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#2E6B24;margin-bottom:7px;">▸ HANDOFF</div>
+          <div style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#131A0E;margin-bottom:4px;">Handed off to filing</div>
+          <div style="font-size:13px;color:#4B5544;">Connects to your incorporation platform.</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="top" style="overflow:hidden;">
+<div style="max-width:1120px;margin:0 auto;padding:clamp(44px,7vw,84px) clamp(20px,5vw,32px) clamp(40px,5vw,56px);display:flex;gap:36px;flex-wrap:wrap;align-items:center;">
+  <div style="flex:1 1 400px;min-width:300px;">
+    <div class="fade-in" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#2E6B24;text-transform:uppercase;margin-bottom:20px;">▸ A decision room for founders</div>
+    <h1 class="fade-in" style="font-family:Fraunces,serif;font-weight:500;font-size:clamp(36px,3.6vw+22px,58px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 22px;color:#131A0E;animation-delay:.08s;">Incorporating a company isn't filling out a form. <em style="font-style:italic;color:#2E6B24;">It's reaching agreement.</em></h1>
+    <p class="fade-in" style="font-size:17.5px;color:#4B5544;max-width:530px;margin:0 0 32px;animation-delay:.16s;">Circule is the room where you and your co-founders make, approve, and seal your company's decisions —with an AI facilitator and a record of everything agreed—. The document builds itself as you decide.</p>
+    <div class="fade-in" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px;animation-delay:.24s;">
+      <a href="#access" class="btn-dark lift" style="font-size:14px;padding:15px 24px;">Get started · 5 questions, 2 minutes</a>
+      <a href="#how-it-works" class="details-link">See how it works
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+    <div class="fade-in" style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B9480;animation-delay:.32s;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B9480" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      <span>People decide and sign. The AI proposes and explains.</span>
+    </div>
+  </div>
+
+  <div style="flex:1 1 380px;min-width:280px;">
+    <div style="width:100%;max-width:440px;margin:0 auto;position:relative;padding:30px 22px 44px;perspective:1300px;">
+
+      <div id="hero-chip" style="position:absolute;bottom:0;right:-14px;z-index:4;max-width:196px;">
+        <div style="background:#FFFFFF;border:1px solid #D6CBEA;border-radius:12px;box-shadow:0 12px 28px rgba(19,26,14,.12);padding:11px 13px;">
+          <div style="display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:#6B4E9E;margin-bottom:6px;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6B4E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+            <span>VISIBLE TO YOU ONLY</span>
+          </div>
+          <div style="font-size:12.5px;color:#131A0E;line-height:1.4;">Your private copilot works for <strong style="font-weight:600;">your</strong> interest.</div>
+        </div>
+      </div>
+
+      <div id="hero-sheet" style="transform-style:preserve-3d;">
+        <div style="position:relative;z-index:2;background:#FBFCF5;border:1px solid #DCE3CC;border-radius:16px;box-shadow:0 16px 46px rgba(19,26,14,.11);overflow:hidden;">
+
+          <div style="padding:14px 18px 13px;border-bottom:1px solid #E7EDD6;background:#FFFFFF;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px;">
+              <span style="font-family:Fraunces,serif;font-size:15px;font-weight:600;color:#131A0E;">Room · Mini Giants Bylaws</span>
+              <span style="display:inline-flex;align-items:center;gap:5px;background:#E3F0DA;border-radius:999px;padding:3px 9px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#2E6B24;">
+                <span style="width:5px;height:5px;border-radius:50%;background:#2E6B24;display:inline-block;animation:pulseDot 1.8s ease-in-out infinite;"></span>live
+              </span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <div style="display:flex;">
+                <div id="av-j" class="avatar" style="background:#5B49B8;">JH</div>
+                <div id="av-s" class="avatar" style="background:#2E6E9E;">SE</div>
+                <div id="av-u" class="avatar" style="background:#C25A34;">SA</div>
+                <div class="avatar is-on" style="background:#7A4A86;">MA</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:7px;background:#131A0E;border-radius:8px;padding:6px 11px;">
+                <span style="font-family:Inter,sans-serif;font-size:11.5px;color:#FBFCF5;">Case file</span>
+                <span id="hero-expediente" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A6E267;">0/7</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="hero-facilitador" style="padding:11px 18px;min-height:56px;box-sizing:border-box;border-bottom:1px solid #E7EDD6;border-left:3px solid #8A2E2A;background:#FDF4F2;transition:background .6s ease;">
+            <div style="display:flex;gap:9px;align-items:flex-start;">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;color:#8A2E2A;flex:none;padding-top:1px;">AI FACILITATOR</span>
+              <span id="hero-facilitador-text" style="font-size:12.5px;color:#4B5544;line-height:1.45;">Still need to set the share capital amount and how it'll be paid.</span>
+            </div>
+          </div>
+
+          <div style="padding:16px 18px 18px;">
+            <div id="hero-articulo" style="border:1px solid #C9D8E8;border-left:3px solid #4B7BAA;background:#F2F6FA;border-radius:0 10px 10px 0;padding:13px 14px;min-height:135px;box-sizing:border-box;transition:background .6s ease,border-color .6s ease;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px;">
+                <span style="font-family:Fraunces,serif;font-size:14.5px;font-weight:600;color:#131A0E;">Article 2 — Share capital</span>
+                <span id="hero-articulo-pill" style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:600;letter-spacing:.06em;padding:3px 7px;border-radius:5px;flex:none;white-space:nowrap;color:#2F5C86;background:#DCE8F3;border:1px solid transparent;transition:all .5s ease;">PROPOSAL READY</span>
+              </div>
+              <div style="font-family:Fraunces,serif;font-size:13.5px;color:#4B5544;line-height:1.5;">The share capital is <span id="hero-monto" style="background:#F5EDCF;color:#8A6516;padding:1px 5px;border-radius:4px;transition:background .5s ease,color .5s ease;">$________ (pending)</span>.</div>
+            </div>
+
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#8B9480;margin:16px 0 9px;">▸ APPROVAL · UNANIMOUS FOUNDER VOTE <span id="hero-conteo">(0/3)</span></div>
+            <div style="display:flex;gap:7px;flex-wrap:wrap;align-content:flex-start;height:89px;">
+              <span id="pill-j" class="approval-pill">Approve as Jhon</span>
+              <span id="pill-s" class="approval-pill">Approve as Sergio</span>
+              <span id="pill-u" class="approval-pill">Approve as Saul</span>
+            </div>
+
+            <div id="hero-registro" style="margin-top:18px;height:86px;box-sizing:border-box;background:#E9F2E2;border:1px solid #BFD8B2;border-radius:10px;padding:14px;overflow:hidden;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .6s cubic-bezier(.2,.7,.2,1);">
+              <div style="display:flex;align-items:flex-start;gap:12px;">
+                <svg width="34" height="34" viewBox="0 0 60 60" style="flex:none;transform:rotate(-6deg);">
+                  <circle cx="30" cy="30" r="26" fill="none" stroke="#8A2E2A" stroke-width="2.5"></circle>
+                  <circle cx="30" cy="30" r="18" fill="none" stroke="#8A2E2A" stroke-width="1.6" stroke-dasharray="2.5 3" style="transform-origin:30px 30px;animation:spinSlow 24s linear infinite;"></circle>
+                  <path d="M21 30l6 6 13-14" fill="none" stroke="#8A2E2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <div>
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#2E6B24;margin-bottom:5px;">▸ DECISION RECORD</div>
+                  <div style="font-size:13px;color:#131A0E;font-weight:500;margin-bottom:3px;">Share capital · version v0.2</div>
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#4B5544;">Approved by Jhon, Sergio, Saul · Aug 6, 4:27pm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div style="background:#E7EDD6;border-top:1px solid #DCE3CC;border-bottom:1px solid #DCE3CC;overflow:hidden;padding:15px 0;">
+  <div style="display:flex;width:max-content;animation:marquee 38s linear infinite;">
+    <div style="display:flex;gap:40px;padding-right:40px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4B5544;white-space:nowrap;">
+      <span>Circule prepares the agreement</span><span style="color:#A9B598;">/</span>
+      <span>Connects to your incorporation platform (Clerky, Stripe Atlas, and others)</span><span style="color:#A9B598;">/</span>
+      <span>Doesn't replace your lawyer or the registry</span><span style="color:#A9B598;">/</span>
+    </div>
+    <div style="display:flex;gap:40px;padding-right:40px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4B5544;white-space:nowrap;" aria-hidden="true">
+      <span>Circule prepares the agreement</span><span style="color:#A9B598;">/</span>
+      <span>Connects to your incorporation platform (Clerky, Stripe Atlas, and others)</span><span style="color:#A9B598;">/</span>
+      <span>Doesn't replace your lawyer or the registry</span><span style="color:#A9B598;">/</span>
+    </div>
+  </div>
+</div>
+
+<section style="background:#1A2A12;color:#EFF3E3;">
+  <div style="max-width:1120px;margin:0 auto;padding:clamp(60px,8vw,96px) clamp(20px,5vw,32px);">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#A6E267;text-transform:uppercase;margin-bottom:20px;">▸ The problem</div>
+    <h2 data-reveal style="transition-delay:.06s;font-family:Fraunces,serif;font-weight:500;font-size:clamp(30px,2.6vw+20px,44px);line-height:1.14;letter-spacing:-0.015em;margin:0 0 26px;max-width:660px;color:#F4F8E8;">The hard part isn't the paperwork. <em style="font-style:italic;color:#A6E267;">It's the agreement.</em></h2>
+    <p data-reveal style="transition-delay:.12s;font-size:16.5px;color:#C3CDB4;max-width:660px;margin:0 0 34px;">How much equity for each of you, what vesting, what happens if someone leaves, who breaks a tie. Today that lives in scattered conversations, a document nobody understands, and expensive lawyer hours —and nobody ends up with a clear record of what was agreed. Years later, in a round or a co-founder dispute, that ambiguity is exactly what breaks cap tables and companies.</p>
+    <div data-reveal style="transition-delay:.18s;display:flex;flex-wrap:wrap;gap:10px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#AFBAA0;background:#22331A;border:1px solid #35482A;border-radius:8px;padding:8px 14px;">WhatsApp threads</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#AFBAA0;background:#22331A;border:1px solid #35482A;border-radius:8px;padding:8px 14px;">A confusing Google Doc</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#AFBAA0;background:#22331A;border:1px solid #35482A;border-radius:8px;padding:8px 14px;">Three private AIs with no shared truth</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#AFBAA0;background:#22331A;border:1px solid #35482A;border-radius:8px;padding:8px 14px;">Emails with version numbers</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#AFBAA0;background:#22331A;border:1px solid #35482A;border-radius:8px;padding:8px 14px;">Expensive lawyer hours</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#AFBAA0;background:#22331A;border:1px solid #35482A;border-radius:8px;padding:8px 14px;">Zero decision record</span>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" style="max-width:1120px;margin:0 auto;padding:clamp(60px,8vw,96px) clamp(20px,5vw,32px);">
+  <div style="display:flex;gap:56px;flex-wrap:wrap;align-items:flex-start;">
+    <div class="steps-col" style="flex:1 1 340px;min-width:290px;position:sticky;top:100px;max-height:calc(100vh - 130px);overflow-y:auto;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#2E6B24;text-transform:uppercase;margin-bottom:20px;">▸ How it works</div>
+      <h2 style="font-family:Fraunces,serif;font-weight:500;font-size:clamp(28px,2.4vw+20px,40px);line-height:1.14;letter-spacing:-0.015em;margin:0 0 32px;color:#131A0E;">From conversation to seal.</h2>
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <div class="step-item is-active" data-step="0">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#2E6B24;margin-bottom:6px;">▸ STEP 01</div>
+          <div style="font-family:Fraunces,serif;font-size:18px;font-weight:600;color:#131A0E;margin-bottom:6px;">Tell us about your case</div>
+          <p style="font-size:14.5px;color:#4B5544;margin:0;">Five questions in plain language: how many co-founders, whether you'll raise capital, how the split will work. Two minutes, no legal jargon.</p>
+        </div>
+        <div class="step-item" data-step="1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#2E6B24;margin-bottom:6px;">▸ STEP 02</div>
+          <div style="font-family:Fraunces,serif;font-size:18px;font-weight:600;color:#131A0E;margin-bottom:6px;">Get your decision agenda</div>
+          <p style="font-size:14.5px;color:#4B5544;margin:0;">Circule builds the exact list of decisions your case needs, with what's typically done for each one, and flags where you need to agree.</p>
+        </div>
+        <div class="step-item" data-step="2">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#2E6B24;margin-bottom:6px;">▸ STEP 03</div>
+          <div style="font-family:Fraunces,serif;font-size:18px;font-weight:600;color:#131A0E;margin-bottom:6px;">Decide and seal it</div>
+          <p style="font-size:14.5px;color:#4B5544;margin:0;">Close each decision with the facilitator and your private copilot. The document is sealed clause by clause. At the end: case file, minutes, and signature.</p>
+        </div>
+        <div class="step-item" data-step="3">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#6B4E9E;margin-bottom:6px;">▸ IN PARALLEL</div>
+          <div style="font-family:Fraunces,serif;font-size:18px;font-weight:600;color:#131A0E;margin-bottom:6px;">Each co-founder has a copilot</div>
+          <p style="font-size:14.5px;color:#4B5544;margin:0;">A private AI per person, explaining each proposal in plain terms and preparing counter-proposals. No one else sees what you ask.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:1 1 400px;min-width:290px;display:flex;flex-direction:column;gap:28px;">
+      <div data-panel="0" data-reveal style="background:#FFFFFF;border:1px solid #DCE3CC;border-radius:16px;box-shadow:0 14px 40px rgba(19,26,14,.07);padding:26px 24px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B9480;margin-bottom:18px;">▸ 5 QUESTIONS · 2 MINUTES</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid #DCE3CC;border-radius:10px;padding:12px 14px;">
+            <span style="font-size:14.5px;color:#131A0E;">How many co-founders are there?</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#2E6B24;">3</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid #DCE3CC;border-radius:10px;padding:12px 14px;">
+            <span style="font-size:14.5px;color:#131A0E;">Will you raise capital?</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#2E6B24;">YES</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid #C6D0B2;border-radius:10px;padding:12px 14px;background:#F6F9EC;">
+            <span style="font-size:14.5px;color:#131A0E;">How will the split work?</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B9480;">IN PROGRESS</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-panel="1" data-reveal style="background:#FFFFFF;border:1px solid #DCE3CC;border-radius:16px;box-shadow:0 14px 40px rgba(19,26,14,.07);padding:26px 24px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B9480;margin-bottom:18px;">▸ DECISION AGENDA</div>
+        <div style="display:flex;flex-direction:column;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #E7EDD6;">
+            <span style="font-family:Fraunces,serif;font-size:15px;font-weight:600;color:#131A0E;">Equity split</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;color:#8A2E2A;border:1px solid #8A2E2A;border-radius:4px;padding:2px 6px;flex:none;">SEALED</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #E7EDD6;">
+            <span style="font-family:Fraunces,serif;font-size:15px;color:#4B5544;">Vesting</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;color:#5C551A;background:#EFE86B;border-radius:4px;padding:2px 6px;flex:none;">UNDER DISCUSSION</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #E7EDD6;">
+            <span style="font-family:Fraunces,serif;font-size:15px;color:#4B5544;">Co-founder departure</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;color:#8B9480;border:1px solid #C6D0B2;border-radius:4px;padding:2px 6px;flex:none;">NOT STARTED</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;">
+            <span style="font-family:Fraunces,serif;font-size:15px;color:#4B5544;">Tie-breaking</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;color:#8B9480;border:1px solid #C6D0B2;border-radius:4px;padding:2px 6px;flex:none;">NOT STARTED</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-panel="2" data-reveal style="background:#FFFFFF;border:1px solid #DCE3CC;border-radius:16px;box-shadow:0 14px 40px rgba(19,26,14,.07);padding:26px 24px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B9480;">▸ CLOSING CASE FILE</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8A2E2A;background:#F6EEEC;border-radius:5px;padding:3px 8px;">LOCKED · 0/7</span>
+        </div>
+        <div style="display:flex;flex-direction:column;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #E7EDD6;">
+            <span style="font-size:14px;color:#131A0E;">Share capital</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:600;color:#2F5C86;background:#DCE8F3;border-radius:5px;padding:3px 7px;flex:none;">PROPOSAL READY</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #E7EDD6;">
+            <span style="font-size:14px;color:#4B5544;">Equity split</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:600;color:#5C551A;background:#F5EDCF;border-radius:5px;padding:3px 7px;flex:none;">UNDER DISCUSSION</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #E7EDD6;">
+            <span style="font-size:14px;color:#4B5544;">Dispute resolution</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:600;color:#6B4E9E;background:#EEE6F1;border-radius:5px;padding:3px 7px;flex:none;">NEEDS A LAWYER</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;">
+            <span style="font-size:14px;color:#4B5544;">Founder vesting</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:600;color:#8B9480;background:#EDEFE6;border-radius:5px;padding:3px 7px;flex:none;">PENDING</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid #DCE3CC;margin-top:16px;padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8B9480;">Minutes kept separate from the legal document</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#131A0E;border:1px solid #C6D0B2;border-radius:8px;padding:7px 12px;">Download minutes</span>
+        </div>
+      </div>
+
+      <div data-panel="3" data-reveal style="background:#FFFFFF;border:1px solid #D6CBEA;border-radius:16px;box-shadow:0 14px 40px rgba(19,26,14,.07);padding:26px 24px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B4E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+          <span style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#131A0E;">Your private copilot</span>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:#6B4E9E;background:#F2ECF8;border-radius:6px;padding:4px 9px;display:inline-block;margin-bottom:18px;">VISIBLE TO YOU ONLY · JHON</div>
+        <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:16px;">
+          <div style="border:1px solid #E7EDD6;background:#F7F7F4;border-radius:9px;padding:11px 13px;font-size:13.5px;color:#131A0E;">Explain this proposal in plain terms</div>
+          <div style="border:1px solid #E7EDD6;background:#F7F7F4;border-radius:9px;padding:11px 13px;font-size:13.5px;color:#131A0E;">Summarize what this means for me</div>
+          <div style="border:1px solid #E7EDD6;background:#F7F7F4;border-radius:9px;padding:11px 13px;font-size:13.5px;color:#131A0E;">Draft a counter-proposal</div>
+        </div>
+        <div style="background:#F5F0FA;border-radius:10px;padding:13px 14px;font-size:13.5px;color:#131A0E;line-height:1.5;"><strong style="font-weight:600;">Share capital:</strong> the Facilitator proposes "$50,000,000 COP · paid in cash over 12 months". In plain terms: close the share capital before signing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why-circule" style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,32px) clamp(60px,8vw,96px);">
+  <div data-reveal style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#2E6B24;text-transform:uppercase;margin-bottom:20px;">▸ Why Circule</div>
+  <h2 data-reveal style="transition-delay:.06s;font-family:Fraunces,serif;font-weight:500;font-size:clamp(28px,2.4vw+20px,40px);letter-spacing:-0.015em;margin:0 0 40px;max-width:660px;color:#131A0E;">The agreement gets recorded, not just written.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+    <div data-reveal class="feature-card">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A2A12" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+      <h3 style="font-size:16.5px;font-weight:600;margin:0 0 10px;color:#131A0E;">Decisions, not just text changes</h3>
+      <p style="font-size:14.5px;color:#4B5544;margin:0;">Every agreement records who approved it, when, and with what caveats. A record that holds up in due diligence or a dispute.</p>
+    </div>
+    <div data-reveal style="transition-delay:.08s" class="feature-card">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A2A12" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      <h3 style="font-size:16.5px;font-weight:600;margin:0 0 10px;color:#131A0E;">A neutral facilitator</h3>
+      <p style="font-size:14.5px;color:#4B5544;margin:0;">Flags what's pending, contradictions, and risks. And every co-founder has a private copilot working for their own interest.</p>
+    </div>
+    <div data-reveal style="transition-delay:.16s" class="feature-card">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A2A12" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+      <h3 style="font-size:16.5px;font-weight:600;margin:0 0 10px;color:#131A0E;">People decide, AI helps</h3>
+      <p style="font-size:14.5px;color:#4B5544;margin:0;">The agents propose and explain. Only you and your authorized co-founders can approve or sign. Never the AI on your behalf.</p>
+    </div>
+    <div data-reveal style="transition-delay:.24s" class="feature-card">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A2A12" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+      <h3 style="font-size:16.5px;font-weight:600;margin:0 0 10px;color:#131A0E;">Connects to the filing</h3>
+      <p style="font-size:14.5px;color:#4B5544;margin:0;">Circule prepares the agreement and hands it off to your incorporation platform. It doesn't replace your lawyer, notary, or registry.</p>
+    </div>
+  </div>
+</section>
+
+<section id="positioning" style="padding:0 clamp(20px,5vw,32px) clamp(60px,8vw,96px);">
+  <div data-reveal style="max-width:1120px;margin:0 auto;background:#1A2A12;border-radius:20px;padding:clamp(36px,5vw,64px) clamp(24px,4vw,56px);text-align:center;color:#EFF3E3;">
+    <h2 style="font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,2.2vw+16px,36px);line-height:1.2;letter-spacing:-0.015em;margin:0 0 18px;max-width:760px;margin-left:auto;margin-right:auto;color:#F4F8E8;">Fast platforms solve the paperwork. <em style="font-style:italic;color:#A6E267;">Circule solves the agreement that comes before it.</em></h2>
+    <p style="font-size:16px;color:#C3CDB4;max-width:580px;margin:0 auto 40px;">We don't compete with Clerky or Stripe Atlas: we connect to them. They file the paperwork once you've decided; we're the room where you decide.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <div style="background:#22331A;border:1px solid #35482A;border-radius:12px;padding:16px 20px;min-width:160px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#A6E267;text-transform:uppercase;margin-bottom:6px;">Agree and seal</div>
+        <div style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#F4F8E8;">Circule</div>
+      </div>
+      <span class="flow-arrow" style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#A6E267;">→</span>
+      <div style="background:#22331A;border:1px solid #35482A;border-radius:12px;padding:16px 20px;min-width:160px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#8FA97A;text-transform:uppercase;margin-bottom:6px;">Files it</div>
+        <div style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#F4F8E8;">Incorporation platform</div>
+      </div>
+      <span class="flow-arrow" style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#A6E267;">→</span>
+      <div style="background:#22331A;border:1px solid #35482A;border-radius:12px;padding:16px 20px;min-width:160px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#8FA97A;text-transform:uppercase;margin-bottom:6px;">Result</div>
+        <div style="font-family:Fraunces,serif;font-size:16px;font-weight:600;color:#F4F8E8;">Company incorporated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who-its-for" style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,32px) clamp(60px,8vw,96px);">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;">
+    <div data-reveal style="border-top:1px solid #C6D0B2;padding-top:18px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#8B9480;text-transform:uppercase;margin-bottom:10px;">▸ For founders</div>
+      <h3 style="font-family:Fraunces,serif;font-size:19px;font-weight:600;margin:0 0 10px;color:#131A0E;">Founders</h3>
+      <p style="font-size:14.5px;color:#4B5544;margin:0;">Agree on equity, vesting, and control before signing anything — not after a dispute.</p>
+    </div>
+    <div data-reveal style="transition-delay:.08s;border-top:1px solid #C6D0B2;padding-top:18px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#8B9480;text-transform:uppercase;margin-bottom:10px;">▸ For companies</div>
+      <h3 style="font-family:Fraunces,serif;font-size:19px;font-weight:600;margin:0 0 10px;color:#131A0E;">Companies</h3>
+      <p style="font-size:14.5px;color:#4B5544;margin:0;">For the governance decisions that come after incorporation —new rounds, changes in co-founders, vesting adjustments— with the same record.</p>
+    </div>
+    <div data-reveal style="transition-delay:.16s;border-top:1px solid #C6D0B2;padding-top:18px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#8B9480;text-transform:uppercase;margin-bottom:10px;">▸ For lawyers</div>
+      <h3 style="font-family:Fraunces,serif;font-size:19px;font-weight:600;margin:0 0 10px;color:#131A0E;">Lawyers</h3>
+      <p style="font-size:14.5px;color:#4B5544;margin:0;">Receive an organized case file, with every clause sealed and its approval history. Less time assembling the document, more time reviewing it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="access" style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,32px) clamp(60px,8vw,96px);">
+  <div data-reveal style="background:#FBFCF5;border:1px solid #DCE3CC;border-radius:20px;box-shadow:0 14px 40px rgba(19,26,14,.06);padding:clamp(32px,4vw,52px);display:flex;gap:44px;flex-wrap:wrap;">
+    <div style="flex:1 1 320px;min-width:280px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#2E6B24;text-transform:uppercase;margin-bottom:18px;">▸ Early access</div>
+      <h2 style="font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,2.2vw+16px,34px);line-height:1.16;letter-spacing:-0.015em;margin:0 0 16px;color:#131A0E;">Leave us your email and we'll let you know when we open your case.</h2>
+      <p style="font-size:15.5px;color:#4B5544;margin:0 0 24px;max-width:420px;">We're opening Circule in batches. Tell us who you are and what you're working through; we prioritize based on the case.</p>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8B9480;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8B9480" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>No spam. Just the opening notice.</span>
+      </div>
+    </div>
+
+    <div style="flex:1 1 340px;min-width:280px;">
+      <form id="acceso-form" novalidate>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8B9480;margin-bottom:12px;">▸ I AM A</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;">
+          <button type="button" class="role-btn is-active" data-role="Founder">Founder</button>
+          <button type="button" class="role-btn" data-role="Lawyer">Lawyer</button>
+          <button type="button" class="role-btn" data-role="Company">Company</button>
+        </div>
+
+        <label for="acceso-email" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8B9480;margin-bottom:8px;">▸ EMAIL</label>
+        <input id="acceso-email" class="field" type="email" placeholder="you@company.com" required style="margin-bottom:18px;">
+
+        <label for="acceso-caso" id="caso-label" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8B9480;margin-bottom:8px;">▸ WHAT YOU'RE WORKING ON</label>
+        <textarea id="acceso-caso" class="field" rows="3" placeholder="Three co-founders, first round, split not settled…" style="resize:vertical;margin-bottom:20px;"></textarea>
+
+        <button id="acceso-submit" type="submit" class="btn-dark lift" style="width:100%;font-size:14px;padding:15px 22px;cursor:pointer;">Request access</button>
+        <div id="acceso-error" style="display:none;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A2E2A;margin-top:10px;">Enter a valid email address.</div>
+      </form>
+
+      <div id="acceso-done" style="display:none;background:#FFFFFF;border:1px solid #C6D0B2;border-radius:14px;padding:26px 24px;animation:fadeUp .5s ease both;">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+          <svg width="46" height="46" viewBox="0 0 60 60" style="flex:none;transform:rotate(-6deg);">
+            <circle cx="30" cy="30" r="26" fill="none" stroke="#2E6B24" stroke-width="2.5"></circle>
+            <circle cx="30" cy="30" r="18" fill="none" stroke="#2E6B24" stroke-width="1.6" stroke-dasharray="2.5 3" style="transform-origin:30px 30px;animation:spinSlow 20s linear infinite;"></circle>
+            <path d="M21 30l6 6 13-14" fill="none" stroke="#2E6B24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <div>
+            <div style="font-family:Fraunces,serif;font-size:19px;font-weight:600;color:#131A0E;margin-bottom:3px;">Request received</div>
+            <div id="acceso-done-meta" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8B9480;"></div>
+          </div>
+        </div>
+        <p style="font-size:14.5px;color:#4B5544;margin:0;">We'll write to you when the next batch opens. If your case is urgent, just reply to that same email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-final" style="background:#E7EDD6;border-top:1px solid #DCE3CC;">
+  <div style="max-width:1120px;margin:0 auto;padding:clamp(60px,8vw,96px) clamp(20px,5vw,32px);text-align:center;">
+    <h2 style="font-family:Fraunces,serif;font-weight:500;font-size:clamp(30px,2.6vw+20px,42px);letter-spacing:-0.015em;margin:0 0 30px;color:#131A0E;">Start with the agreement. <em style="font-style:italic;color:#2E6B24;">The paperwork follows on its own.</em></h2>
+    <a href="#access" class="btn-dark lift" style="font-size:15px;padding:17px 30px;">Get started now</a>
+  </div>
+</section>
+
+<footer style="background:#1A2A12;color:#C3CDB4;">
+  <div style="max-width:1120px;margin:0 auto;padding:44px clamp(20px,5vw,32px) 40px;display:flex;gap:40px;flex-wrap:wrap;justify-content:space-between;">
+    <div style="flex:1 1 280px;">
+      <div style="font-family:Fraunces,serif;font-size:19px;font-weight:600;color:#F4F8E8;margin-bottom:8px;">Circule</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:#8FA97A;">Before the paperwork, the agreement</div>
+    </div>
+    <div style="display:flex;gap:48px;flex-wrap:wrap;">
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8FA97A;text-transform:uppercase;margin-bottom:2px;">Product</div>
+        <a href="#how-it-works" style="font-size:14px;color:#C3CDB4;">How it works</a>
+        <a href="#why-circule" style="font-size:14px;color:#C3CDB4;">Why Circule</a>
+        <a href="#positioning" style="font-size:14px;color:#C3CDB4;">Integration</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8FA97A;text-transform:uppercase;margin-bottom:2px;">Who it's for</div>
+        <a href="#who-its-for" style="font-size:14px;color:#C3CDB4;">Founders</a>
+        <a href="#who-its-for" style="font-size:14px;color:#C3CDB4;">Companies</a>
+        <a href="#who-its-for" style="font-size:14px;color:#C3CDB4;">Lawyers</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid #35482A;">
+    <div style="max-width:1120px;margin:0 auto;padding:20px clamp(20px,5vw,32px) 32px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.7;color:#8FA97A;max-width:700px;margin:0;">Circule organizes and records decisions. It is not a law firm and does not replace legal review, notarization, or the commercial registry required in your jurisdiction. © 2026 Circule.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- header dropdown ---------- */
+  var header = document.getElementById("site-header");
+  var producto = document.getElementById("nav-producto-btn");
+  var chevron = document.getElementById("nav-chevron");
+  var dropdown = document.getElementById("nav-dropdown");
+  function openMenu(){
+    dropdown.style.opacity = "1";
+    dropdown.style.pointerEvents = "auto";
+    dropdown.style.transform = "translateY(0)";
+    chevron.style.transform = "rotate(180deg)";
+  }
+  function closeMenu(){
+    dropdown.style.opacity = "0";
+    dropdown.style.pointerEvents = "none";
+    dropdown.style.transform = "translateY(-8px)";
+    chevron.style.transform = "rotate(0deg)";
+  }
+  producto.addEventListener("mouseenter", openMenu);
+  producto.addEventListener("click", openMenu);
+  document.querySelectorAll(".nav-item").forEach(function(el){ el.addEventListener("mouseenter", closeMenu); });
+  header.addEventListener("mouseleave", closeMenu);
+
+  /* ---------- mobile menu ---------- */
+  var hamburgerBtn = document.getElementById("nav-hamburger-btn");
+  var mobileMenu = document.getElementById("mobile-menu");
+  function closeMobileMenu(){
+    mobileMenu.classList.remove("is-open");
+    hamburgerBtn.setAttribute("aria-expanded", "false");
+  }
+  function toggleMobileMenu(){
+    var open = mobileMenu.classList.toggle("is-open");
+    hamburgerBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  hamburgerBtn.addEventListener("click", toggleMobileMenu);
+  mobileMenu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", closeMobileMenu); });
+  window.addEventListener("resize", function(){ if (window.innerWidth > 820) closeMobileMenu(); });
+
+  /* ---------- scroll progress + hero tilt + active step ---------- */
+  var progressBar = document.getElementById("scroll-progress");
+  var sheet = document.getElementById("hero-sheet");
+  var chip = document.getElementById("hero-chip");
+  var stepItems = document.querySelectorAll(".step-item");
+  var panels = document.querySelectorAll("[data-panel]");
+  var raf = null;
+
+  function activePanel(){
+    var mid = (window.innerHeight || 800) * 0.45;
+    var active = 0;
+    panels.forEach(function(node){
+      var rect = node.getBoundingClientRect();
+      if (rect.top <= mid) active = Number(node.dataset.panel);
+    });
+    return active;
+  }
+
+  function tick(){
+    if (raf) return;
+    raf = requestAnimationFrame(function(){
+      raf = null;
+      var sy = window.scrollY;
+      var p = Math.max(0, Math.min(1, sy / 520));
+      var e = 1 - p;
+
+      if (!reduced && sheet){
+        sheet.style.transform = "rotateX(" + (e * 9).toFixed(2) + "deg) rotateY(" + (-e * 11).toFixed(2) + "deg) rotate(-1deg)";
+      }
+      if (!reduced && chip){
+        chip.style.transform = "translate3d(" + (e * 12).toFixed(1) + "px, " + (p * 22).toFixed(1) + "px, 0) rotate(" + (-2 + e * 2).toFixed(2) + "deg)";
+      }
+
+      var active = activePanel();
+      stepItems.forEach(function(el){
+        el.classList.toggle("is-active", Number(el.dataset.step) === active);
+      });
+
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - window.innerHeight;
+      var progress = max > 0 ? Math.min(100, (sy / max) * 100) : 0;
+      progressBar.style.width = progress.toFixed(2) + "%";
+    });
+  }
+  window.addEventListener("scroll", tick, { passive: true });
+  window.addEventListener("resize", tick);
+  tick();
+
+  /* ---------- fade-up reveal on scroll ---------- */
+  // Elements already scrolled past (e.g. a direct #access deep link) must reveal
+  // immediately too, not just ones entering from below — a plain IntersectionObserver
+  // misses that case, so this checks position directly on every scroll/resize tick.
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  function revealOnScroll(){
+    var vh = window.innerHeight || 800;
+    revealEls.forEach(function(el){
+      if (el.classList.contains("is-visible")) return;
+      if (reduced || el.getBoundingClientRect().top < vh * 0.9){
+        el.classList.add("is-visible");
+      }
+    });
+  }
+  revealOnScroll();
+  window.addEventListener("scroll", revealOnScroll, { passive: true });
+  window.addEventListener("resize", revealOnScroll);
+
+  /* ---------- hero demo animation (loops the product story) ---------- */
+  var heroExpediente = document.getElementById("hero-expediente");
+  var heroFacilitador = document.getElementById("hero-facilitador");
+  var heroFacilitadorText = document.getElementById("hero-facilitador-text");
+  var heroArticulo = document.getElementById("hero-articulo");
+  var heroArticuloPill = document.getElementById("hero-articulo-pill");
+  var heroMonto = document.getElementById("hero-monto");
+  var heroConteo = document.getElementById("hero-conteo");
+  var heroRegistro = document.getElementById("hero-registro");
+  var pillJ = document.getElementById("pill-j");
+  var pillS = document.getElementById("pill-s");
+  var pillU = document.getElementById("pill-u");
+  var avJ = document.getElementById("av-j");
+  var avS = document.getElementById("av-s");
+  var avU = document.getElementById("av-u");
+
+  function setPill(pill, on, onLabel, offLabel){
+    pill.classList.toggle("is-on", on);
+    pill.textContent = on ? onLabel : offLabel;
+  }
+
+  function renderPhase(ph){
+    var sealed = ph >= 4;
+    var aprob = Math.max(0, Math.min(3, ph - 1));
+
+    heroExpediente.textContent = ph >= 5 ? "1/7" : "0/7";
+    heroFacilitador.style.background = ph === 0 ? "#FDF4F2" : "#FBFCF5";
+    heroFacilitadorText.textContent = ph >= 4
+      ? "Share capital closed. 6 decisions left before closing."
+      : "Still need to set the share capital amount and how it'll be paid.";
+
+    heroArticulo.style.border = "1px solid " + (sealed ? "#E3C9C4" : "#C9D8E8");
+    heroArticulo.style.borderLeft = "3px solid " + (sealed ? "#8A2E2A" : "#4B7BAA");
+    heroArticulo.style.background = sealed ? "#FBF3F1" : "#F2F6FA";
+    heroArticuloPill.textContent = sealed ? "SEALED" : "PROPOSAL READY";
+    heroArticuloPill.style.color = sealed ? "#8A2E2A" : "#2F5C86";
+    heroArticuloPill.style.background = sealed ? "transparent" : "#DCE8F3";
+    heroArticuloPill.style.border = sealed ? "1px solid #8A2E2A" : "1px solid transparent";
+
+    heroMonto.textContent = ph >= 1 ? "$50,000,000 COP · paid in cash over 12 months" : "$________ (pending)";
+    heroMonto.style.background = ph >= 1 ? "#E3F0DA" : "#F5EDCF";
+    heroMonto.style.color = ph >= 1 ? "#1F4D18" : "#8A6516";
+
+    heroConteo.textContent = "(" + aprob + "/3)";
+    setPill(pillJ, aprob >= 1, "✓ Jhon", "Approve as Jhon");
+    setPill(pillS, aprob >= 2, "✓ Sergio", "Approve as Sergio");
+    setPill(pillU, aprob >= 3, "✓ Saul", "Approve as Saul");
+    avJ.classList.toggle("is-on", aprob >= 1);
+    avS.classList.toggle("is-on", aprob >= 2);
+    avU.classList.toggle("is-on", aprob >= 3);
+
+    heroRegistro.style.opacity = ph >= 5 ? "1" : "0";
+    heroRegistro.style.transform = ph >= 5 ? "translateY(0)" : "translateY(10px)";
+  }
+
+  var phase = reduced ? 5 : 0;
+  renderPhase(phase);
+  if (!reduced){
+    setInterval(function(){
+      phase = (phase + 1) % 6;
+      renderPhase(phase);
+    }, 1700);
+  }
+
+  /* ---------- access form ---------- */
+  var SUPABASE_URL = "https://renwsdigdvjtwjxuomgd.supabase.co";
+  var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJlbndzZGlnZHZqdHdqeHVvbWdkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3Nzc1NDYsImV4cCI6MjEwMjM1MzU0Nn0.UcuSBkvLqpXWEOhDO3Beg2GFKpxSBhraBjJpfH40oWw";
+
+  var role = "Founder";
+  var roleBtns = document.querySelectorAll(".role-btn");
+  var casoLabel = document.getElementById("caso-label");
+  var casoInput = document.getElementById("acceso-caso");
+  var emailInput = document.getElementById("acceso-email");
+  var form = document.getElementById("acceso-form");
+  var submitBtn = document.getElementById("acceso-submit");
+  var errorEl = document.getElementById("acceso-error");
+  var doneEl = document.getElementById("acceso-done");
+  var doneMeta = document.getElementById("acceso-done-meta");
+
+  var CASO_COPY = {
+    Founder: { label: "▸ WHAT YOU'RE WORKING ON", placeholder: "Three co-founders, first round, split not settled…" },
+    Lawyer: { label: "▸ WHO YOU ADVISE", placeholder: "Startup incorporations, seed rounds…" },
+    Company: { label: "▸ WHAT YOU'RE WORKING ON", placeholder: "Seed round, bringing on a new co-founder…" }
+  };
+
+  roleBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      role = btn.dataset.role;
+      roleBtns.forEach(function(b){ b.classList.toggle("is-active", b === btn); });
+      casoLabel.textContent = CASO_COPY[role].label;
+      casoInput.placeholder = CASO_COPY[role].placeholder;
+    });
+  });
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var email = emailInput.value.trim();
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!ok){
+      errorEl.textContent = "Enter a valid email address.";
+      errorEl.style.display = "block";
+      return;
+    }
+    errorEl.style.display = "none";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+
+    fetch(SUPABASE_URL + "/rest/v1/circule_leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": "Bearer " + SUPABASE_ANON_KEY
+      },
+      body: JSON.stringify({ role: role, email: email, caso: casoInput.value.trim(), locale: "en" })
+    }).then(function(res){
+      if (!res.ok) throw new Error("request failed: " + res.status);
+      form.style.display = "none";
+      doneEl.style.display = "block";
+      doneMeta.textContent = role.toUpperCase() + " · " + email.toUpperCase();
+    }).catch(function(err){
+      console.error("[circule-lead] submit failed", err);
+      errorEl.textContent = "We couldn't save your request. Please try again.";
+      errorEl.style.display = "block";
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request access";
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
