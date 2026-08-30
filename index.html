@@ -5,9 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Circule · Before the paperwork, the agreement</title>
 <meta name="description" content="Circule is the room where you and your co-founders make, approve, and seal your company's decisions, with an AI facilitator and a record of everything agreed.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box}
   body{margin:0;color:#131A0E;font-family:Inter,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;background-color:#EFF2E5}
@@ -50,6 +54,9 @@
   .step-item.is-active{border-left-color:#2E6B24;opacity:1}
   .lang-link{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8B9480;transition:color .2s ease}
   .lang-link:hover{color:#131A0E}
+  .logo-mark{display:inline-flex;flex-direction:column;width:82px;font-family:Inter,sans-serif;font-weight:800;color:#131A0E;line-height:.8}
+  .logo-row{display:flex;justify-content:space-between;width:100%;font-size:20px;letter-spacing:-0.01em}
+  .logo-row2{font-size:20px;letter-spacing:-0.01em;margin:-1px 0 0 24px}
 
   .nav-hamburger{display:none;background:none;border:none;padding:6px;margin:-6px 0;border-radius:8px;cursor:pointer;align-items:center;justify-content:center;transition:background .2s ease}
   .nav-hamburger:hover{background:#E7EDD6}
@@ -74,7 +81,10 @@
 <div style="position:sticky;top:0;z-index:60;border-bottom:1px solid #DCE3CC;background-color:#F1F2EB" id="site-header">
   <div style="max-width:1120px;margin:0 auto;padding:13px clamp(20px,5vw,32px);display:flex;align-items:center;justify-content:space-between;gap:24px;">
     <div style="display:flex;align-items:center;gap:34px;">
-      <a href="#top" style="font-family:Fraunces,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:#131A0E;">Circule</a>
+      <a href="#top" aria-label="Circule" class="logo-mark">
+        <span class="logo-row"><span>CIR</span><span>LE</span></span>
+        <span class="logo-row2">CU</span>
+      </a>
       <div class="nav-links" style="display:flex;align-items:center;gap:26px;">
         <button id="nav-producto-btn" class="nav-producto">Product
           <svg id="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .25s ease"><polyline points="6 9 12 15 18 9"></polyline></svg>
